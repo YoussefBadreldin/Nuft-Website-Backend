@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// Import routes
 const authRoutes = require('./router/userRouter');
 const international = require('./router/internationalRouter');
 const international_Links = require('./router/inter_links_router');
@@ -15,7 +14,8 @@ const trans = require('./router/trans_router');
 const news = require('./router/newsRouter');
 const admission = require('./router/admission');
 const contact = require('./router/contactRouter');
-const visitors = require('./routes/visitors');
+
+app.use(cors());
 
 // Connect to MongoDB using environment variable
 mongoose.connect(process.env.MONGODB_URI, {})
@@ -23,13 +23,12 @@ mongoose.connect(process.env.MONGODB_URI, {})
     .catch(err => console.log(err));
 
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 app.get('/ab', () => {
     console.log("hello");
 });
 
-// Use routers
+// Routes
 app.use('/auth', authRoutes);
 app.use('/faclity', international);
 app.use('/links', international_Links);
@@ -38,7 +37,6 @@ app.use('/trans', trans);
 app.use('/news', news);
 app.use('/admission', admission);
 app.use('/contact', contact);
-app.use('/visitors', visitors); // Add the visitor router
 
 // CORS OPTIONS preflight handler
 app.options('/auth/signup', cors());
