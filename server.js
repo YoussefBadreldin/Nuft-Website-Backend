@@ -14,8 +14,7 @@ const trans = require('./router/trans_router');
 const news = require('./router/newsRouter');
 const admission = require('./router/admission');
 const contact = require('./router/contactRouter');
-
-app.use(cors());
+const visitorRouter = require('./router/visitorRouter'); // Adjusted path
 
 // Connect to MongoDB using environment variable
 mongoose.connect(process.env.MONGODB_URI, {})
@@ -23,10 +22,14 @@ mongoose.connect(process.env.MONGODB_URI, {})
     .catch(err => console.log(err));
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 app.get('/ab', () => {
     console.log("hello");
 });
+
+// API endpoint to get and update visitor count
+app.use('/api', visitorRouter); // Use the visitorRouter for the /api routes
 
 // Routes
 app.use('/auth', authRoutes);
