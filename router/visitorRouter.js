@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const visitorController = require('../controllers/visitorController');
+const { getallvisitors } = require('../controller/visitorController'); // Adjust the path as needed
 
-// Define route to get and update visitor count
-router.get('/visitor-count', visitorController.getVisitorCount);
-
+router.get('/getallvisitors', getallvisitors)
 module.exports = router;

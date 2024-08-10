@@ -15,7 +15,7 @@ const trans = require('./router/trans_router');
 const news = require('./router/newsRouter');
 const admission = require('./router/admission');
 const contact = require('./router/contactRouter');
-const visitorRouter = require('./routes/visitorRouter'); // Import visitor router
+const visitors = require('./routes/visitors');
 
 // Connect to MongoDB using environment variable
 mongoose.connect(process.env.MONGODB_URI, {})
@@ -38,7 +38,7 @@ app.use('/trans', trans);
 app.use('/news', news);
 app.use('/admission', admission);
 app.use('/contact', contact);
-app.use('/api', visitorRouter); // Add the visitor router
+app.use('/visitors', visitors); // Add the visitor router
 
 // CORS OPTIONS preflight handler
 app.options('/auth/signup', cors());

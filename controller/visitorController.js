@@ -1,7 +1,7 @@
 const Visitor = require('../models/visitorModel');
 
 // Get and update visitor count
-const getVisitorCount = async (req, res) => {
+const getallvisitors = async (req, res) => {
   try {
     let visitor = await Visitor.findOne();
     if (!visitor) {
@@ -18,5 +18,5 @@ const getVisitorCount = async (req, res) => {
 };
 
 module.exports = {
-  getVisitorCount
+  getallvisitors
 };
