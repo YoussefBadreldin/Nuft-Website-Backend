@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const admissionSchema = new mongoose.Schema({
+const nationaladmissionSchema = new mongoose.Schema({
     faclityName: String,
     specility: String,
     statusTransfer: String,
@@ -13,5 +13,5 @@ const admissionSchema = new mongoose.Schema({
     InternationalStudents: String,
 });
 
-const admission = mongoose.model('admission', admissionSchema);
-module.exports = admission;
+const nationaladmission = mongoose.model('nationaladmission', nationaladmissionSchema);
+module.exports = nationaladmission;

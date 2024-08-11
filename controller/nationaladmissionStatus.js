@@ -1,6 +1,6 @@
-const admission = require('../models/admissionStatus');
+const nationaladmission = require('../models/nationaladmissionStatus');
 
-const postAdmission = async function(req, res) {
+const postnationalAdmission = async function(req, res) {
     try {
         const {
             faclityName,
@@ -15,7 +15,7 @@ const postAdmission = async function(req, res) {
             InternationalStudents,
         } = req.body;
 
-        const newAdmission = await admission.create({
+        const newnationalAdmission = await nationaladmission.create({
             faclityName,
             specility,
             statusTransfer,
@@ -28,16 +28,16 @@ const postAdmission = async function(req, res) {
             InternationalStudents,
         });
 
-        res.status(200).json(newAdmission);
+        res.status(200).json(newnationalAdmission);
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'INTERNAL SERVER ERROR' });
     }
 }
 
-const getAdmission = async function(req, res) {
+const getnationalAdmission = async function(req, res) {
     try {
-        const response = await admission.find();
+        const response = await nationaladmission.find();
         if (response.length === 0) {
             res.status(404).json({ message: 'NO DATA' });
         } else {
@@ -49,4 +49,4 @@ const getAdmission = async function(req, res) {
     }
 }
 
-module.exports = { postAdmission, getAdmission };
+module.exports = { postnationalAdmission, getnationalAdmission };

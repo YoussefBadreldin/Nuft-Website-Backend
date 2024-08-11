@@ -7,14 +7,15 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const authRoutes = require('./router/userRouter');
-const international = require('./router/internationalRouter');
-const international_Links = require('./router/inter_links_router');
-const dorms = require('./router/infoDormsRouter');
-const trans = require('./router/trans_router');
+const national = require('./router/nationalRouter');
+const national_Links = require('./router/national_links_router');
+const nationaldorms = require('./router/nationalinfoDormsRouter');
+const nationaltrans = require('./router/nationaltrans_router');
 const news = require('./router/newsRouter');
-const admission = require('./router/admission');
+const nationaladmission = require('./router/nationaladmission');
 const contact = require('./router/contactRouter');
-const visitorRouter = require('./router/visitorRouter'); // Adjusted path
+
+app.use(cors());
 
 // Connect to MongoDB using environment variable
 mongoose.connect(process.env.MONGODB_URI, {})
@@ -22,23 +23,19 @@ mongoose.connect(process.env.MONGODB_URI, {})
     .catch(err => console.log(err));
 
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 app.get('/ab', () => {
     console.log("hello");
 });
 
-// API endpoint to get and update visitor count
-app.use('/api', visitorRouter); // Use the visitorRouter for the /api routes
-
 // Routes
 app.use('/auth', authRoutes);
-app.use('/faclity', international);
-app.use('/links', international_Links);
-app.use('/info', dorms);
-app.use('/trans', trans);
+app.use('/nationalfaclity', national);
+app.use('/nationallinks', national_Links);
+app.use('/nationaldorms', nationaldorms);
+app.use('/nationaltrans', nationaltrans);
 app.use('/news', news);
-app.use('/admission', admission);
+app.use('/nationaladmission', nationaladmission);
 app.use('/contact', contact);
 
 // CORS OPTIONS preflight handler

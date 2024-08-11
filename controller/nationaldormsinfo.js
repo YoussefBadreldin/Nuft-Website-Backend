@@ -1,9 +1,9 @@
-const secondInfo = require('../models/dormsinfomodel');
+const nationaldorms = require('../models/nationaldormsinfomodel');
 
 const addInfo = async function(req, res) {
     const { type, price, spec } = req.body;
     try {
-        const newInfo = new secondInfo({
+        const newInfo = new nationaldorms({
             type,
             price,
             spec
@@ -18,7 +18,7 @@ const addInfo = async function(req, res) {
 
 const getInfo = async function(req, res) {
     try {
-        const all_information = await secondInfo.find();
+        const all_information = await nationaldorms.find();
         if (all_information.length === 0) {
             res.status(404).json({ message: 'NO DATA' });
         } else {

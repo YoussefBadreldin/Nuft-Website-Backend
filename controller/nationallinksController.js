@@ -1,6 +1,6 @@
-const linksModel = require('../models/international_links'); // Note the corrected import statement
+const nationallinksModel = require('../models/national_links'); // Note the corrected import statement
 
-const add_Links = async function(req, res) {
+const add_nationalLinks = async function(req, res) {
     try {
         const {
             first_year,
@@ -18,7 +18,7 @@ const add_Links = async function(req, res) {
             university_Name,
         } = req.body;
 
-        const newlinks = new linksModel({
+        const newnationallinks = new nationallinksModel({
             first_year,
             second_year,
             details_about_internationa_program,
@@ -34,26 +34,26 @@ const add_Links = async function(req, res) {
             university_Name,
         });
 
-        await newlinks.save();
+        await newnationallinks.save();
         res.status(200).json({ message: 'added links successfully' });
     } catch (error) {
-        console.error("Error in add_Links:", error);
+        console.error("Error in add_nationalLinks:", error);
         res.status(500).json({ message: 'Error when adding links' });
     }
 };
 
-const getLinks = async function(req, res) {
+const getnationalLinks = async function(req, res) {
     try {
-        const links = await linksModel.find();
-        if (links.length === 0) {
+        const nationallinks = await nationallinksModel.find();
+        if (nationallinks.length === 0) {
             res.status(404).json({ message: 'no data' });
         } else {
-            res.status(200).json(links);
+            res.status(200).json(nationallinks);
         }
     } catch (error) {
-        console.error("Error in getLinks:", error);
+        console.error("Error in getnationalLinks:", error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
 
-module.exports = { add_Links, getLinks };
+module.exports = { add_nationalLinks, getnationalLinks };

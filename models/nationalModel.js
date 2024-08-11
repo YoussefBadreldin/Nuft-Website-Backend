@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const internationalSchema = new mongoose.Schema({
+const nationalSchema = new mongoose.Schema({
     facilities: String,
     facality_or_international: String,
     programs: String,
@@ -26,6 +26,6 @@ const internationalSchema = new mongoose.Schema({
     details_about_internationa_program: String,
 });
 
-const International = mongoose.model('International', internationalSchema);
+const national = mongoose.model('national', nationalSchema);
 
-module.exports = { International };
+module.exports = { national };

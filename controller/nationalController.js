@@ -1,5 +1,5 @@
-const { International } = require('../models/internationalModel');
-const addInternationalFacility = async function(req, res) {
+const { national } = require('../models/nationalModel');
+const addnationalFacility = async function(req, res) {
     try {
         const {
             facilities,
@@ -29,7 +29,7 @@ const addInternationalFacility = async function(req, res) {
             //details_about_internationa_program,
         } = req.body;
 
-        const newFacility = new International({
+        const newFacility = new national({
             facilities,
             facality_or_international,
             programs,
@@ -65,7 +65,7 @@ const addInternationalFacility = async function(req, res) {
 const deleteFacility = async function(req, res) {
     try {
         const { name } = req.params;
-        const result = await International.deleteOne({ facilities: name });
+        const result = await national.deleteOne({ facilities: name });
         if (result.deletedCount > 0) {
             res.status(200).json({ message: 'Facility deleted successfully' });
         } else {
@@ -79,7 +79,7 @@ const deleteFacility = async function(req, res) {
 
 const getAllfacilities = async function(req,res){
     try{
-        const facilities = await International.find();
+        const facilities = await national.find();
         if(facilities.length === 0){
             res.status(404).json({message:'no data'});
         }
@@ -92,4 +92,4 @@ const getAllfacilities = async function(req,res){
 
 
 
-module.exports = { addInternationalFacility, deleteFacility, getAllfacilities, };
+module.exports = { addnationalFacility, deleteFacility, getAllfacilities, };

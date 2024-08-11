@@ -1,9 +1,9 @@
-const trans_Info = require('../models/transportation');
+const nationaltrans_Info = require('../models/nationaltransportation');
 
 const addInfo = async function(req, res) {
     const { type, price, spec } = req.body;
     try {
-        const newInfo = new trans_Info({
+        const newInfo = new nationaltrans_Info({
             type,
             price,
             spec
@@ -18,7 +18,7 @@ const addInfo = async function(req, res) {
 
 const getInfo = async function(req, res) {
     try {
-        const all_information = await trans_Info.find();
+        const all_information = await nationaltrans_Info.find();
         if (all_information.length === 0) {
             res.status(404).json({ message: 'NO DATA' });
         } else {

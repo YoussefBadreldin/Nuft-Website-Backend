@@ -6,6 +6,6 @@ const secondInfoSchema = new mongoose.Schema({
     spec: String
 });
 
-const secondInfo = mongoose.model('secondInfo', secondInfoSchema);
+const nationaltrans_Info = mongoose.model('nationaltransInfo', secondInfoSchema);
 
-module.exports = secondInfo;
+module.exports = nationaltrans_Info;

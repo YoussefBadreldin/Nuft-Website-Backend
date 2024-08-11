@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const linksSchema = mongoose.Schema({
+const nationallinksSchema = mongoose.Schema({
     first_year: String,
     second_year: String,
     details_about_internationa_program: String,
@@ -16,6 +16,6 @@ const linksSchema = mongoose.Schema({
     university_Name: String,
 });
 
-const linksModel = mongoose.model('links', linksSchema);
+const nationallinksModel = mongoose.model('nationallinks', nationallinksSchema);
 
-module.exports = linksModel;
+module.exports = nationallinksModel;
