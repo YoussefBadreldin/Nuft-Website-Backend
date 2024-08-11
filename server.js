@@ -14,6 +14,7 @@ const nationaltrans = require('./router/nationaltrans_router');
 const news = require('./router/newsRouter');
 const nationaladmission = require('./router/nationaladmission');
 const contact = require('./router/contactRouter');
+const visitorRouter = require('./router/visitorRouter'); // Adjusted path
 
 app.use(cors());
 
@@ -27,6 +28,10 @@ app.use(bodyParser.json());
 app.get('/ab', () => {
     console.log("hello");
 });
+
+// API endpoint to get and update visitor count
+app.use('/api', visitorRouter); // Use the visitorRouter for the /api routes
+
 
 // Routes
 app.use('/auth', authRoutes);
