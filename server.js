@@ -5,7 +5,6 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const authRoutes = require('./router/userRouter');
 const news = require('./router/newsRouter');
 const contact = require('./router/contactRouter');
@@ -19,7 +18,7 @@ const private_Links = require('./router/private_links_router');
 const privatedorms = require('./router/privateinfoDormsRouter');
 const privatetrans = require('./router/privatetrans_router');
 const privateadmission = require('./router/privateadmission');
-
+const visitorRouter = require('./router/visitorRouter'); // Adjusted path
 
 
 app.use(cors());
@@ -35,6 +34,9 @@ app.get('/ab', () => {
     console.log("hello");
 });
 
+// API endpoint to get and update visitor count
+app.use('/api', visitorRouter); // Use the visitorRouter for the /api routes
+
 // Routes
 app.use('/auth', authRoutes);
 app.use('/news', news);
@@ -49,6 +51,7 @@ app.use('/privatelinks', private_Links);
 app.use('/privatedorms', privatedorms);
 app.use('/privatetrans', privatetrans);
 app.use('/privateadmission', privateadmission);
+
 
 // CORS OPTIONS preflight handler
 app.options('/auth/signup', cors());
