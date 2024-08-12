@@ -3,29 +3,31 @@ const nationaladmission = require('../models/nationaladmissionStatus');
 const postnationalAdmission = async function(req, res) {
     try {
         const {
-            faclityName,
-            specility,
-            statusTransfer,
-            thanwyaaAmaaStatus_first,
-            thanwyaaAmaaStatus_second,
-            ArabEnglishAzhariCertificates_first,
-            ArabEnglishAzhariCertificates_second,
-            StemNileCertificates_first,
-            StemNileCertificates_second,
-            InternationalStudents,
+            university,
+            faculty,
+            transfer_status,
+            thanwyaa_firstYear_status,
+            thanwyaa_secondYear_status,
+            azhar_firstYear_status,
+            azhar_secondYear_status,
+            Arabenglish_firstYear_status,
+            Arabenglish_secondYear_status,
+            wafdeen_status,
+            guide_Url,
         } = req.body;
 
         const newnationalAdmission = await nationaladmission.create({
-            faclityName,
-            specility,
-            statusTransfer,
-            thanwyaaAmaaStatus_first,
-            thanwyaaAmaaStatus_second,
-            ArabEnglishAzhariCertificates_first,
-            ArabEnglishAzhariCertificates_second,
-            StemNileCertificates_first,
-            StemNileCertificates_second,
-            InternationalStudents,
+            university,
+            faculty,
+            transfer_status,
+            thanwyaa_firstYear_status,
+            thanwyaa_secondYear_status,
+            azhar_firstYear_status,
+            azhar_secondYear_status,
+            Arabenglish_firstYear_status,
+            Arabenglish_secondYear_status,
+            wafdeen_status,
+            guide_Url,
         });
 
         res.status(200).json(newnationalAdmission);

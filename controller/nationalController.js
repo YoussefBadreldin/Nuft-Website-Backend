@@ -13,11 +13,9 @@ const addnationalfaculty = async function(req, res) {
             thanwyaa_secondYear_score,
             azhar_firstYear_score,
             azhar_secondYear_score,
-            stem_firstYear_score,
-            stem_secondYear_score,
+            Arabenglish_firstYear_score,
+            Arabenglish_secondYear_score,
             wafdeen_score,
-            DormsInfo,
-            Schoolarships_link,
         } = req.body;
 
         const newfaculty = new national({
@@ -32,8 +30,8 @@ const addnationalfaculty = async function(req, res) {
             thanwyaa_secondYear_score,
             azhar_firstYear_score,
             azhar_secondYear_score,
-            stem_firstYear_score,
-            stem_secondYear_score,
+            Arabenglish_firstYear_score,
+            Arabenglish_secondYear_score,
             wafdeen_score,
             DormsInfo,
             detailsSchoolarship,
