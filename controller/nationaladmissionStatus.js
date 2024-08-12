@@ -4,7 +4,7 @@ const postnationalAdmission = async function(req, res) {
     try {
         const {
             university,
-            faculty,
+            university_Arabic_Name,
             transfer_status,
             thanwyaa_firstYear_status,
             thanwyaa_secondYear_status,

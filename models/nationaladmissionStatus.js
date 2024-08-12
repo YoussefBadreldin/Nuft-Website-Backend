@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const nationaladmissionSchema = new mongoose.Schema({
     
     university: String,
-    faculty: String,
+    university_Arabic_Name: String,
     transfer_status: String,
     thanwyaa_firstYear_status: String,
     thanwyaa_secondYear_status: String,
