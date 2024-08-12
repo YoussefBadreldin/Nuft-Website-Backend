@@ -18,7 +18,7 @@ const postnationalAdmission = async function(req, res) {
 
         const newnationalAdmission = await nationaladmission.create({
             university,
-            faculty,
+            university_Arabic_Name,
             transfer_status,
             thanwyaa_firstYear_status,
             thanwyaa_secondYear_status,
