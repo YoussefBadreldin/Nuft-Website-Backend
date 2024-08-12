@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./router/userRouter');
 const news = require('./router/newsRouter');
+const Schoralships = require('./router/SchoralshipsRouter');
 const contact = require('./router/contactRouter');
 const visitorRouter = require('./router/visitorRouter'); // Adjusted path
 const national = require('./router/nationalRouter');
@@ -49,6 +50,7 @@ app.use('/api', visitorRouter); // Use the visitorRouter for the /api routes
 // Routes
 app.use('/auth', authRoutes);
 app.use('/news', news);
+app.use('/Schoralships', Schoralships);
 app.use('/contact', contact);
 app.use('/nationalfaclity', national);
 app.use('/nationallinks', national_Links);
