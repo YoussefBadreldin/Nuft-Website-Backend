@@ -33,8 +33,6 @@ const addnationalfaculty = async function(req, res) {
             Arabenglish_firstYear_score,
             Arabenglish_secondYear_score,
             wafdeen_score,
-            DormsInfo,
-            detailsSchoolarship,
         });
 
         await newfaculty.save();

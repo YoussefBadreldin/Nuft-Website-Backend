@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {addnationalfaculty,deletefaculty,getAllfaculty} = require('../controller/nationalController');
-router.post('/addnationalfaculty', addnationalfaculty);
+router.post('/addnational', addnationalfaculty);
 router.get('/getnational',getAllfaculty)
 router.delete('/deletenational',deletefaculty);
 
