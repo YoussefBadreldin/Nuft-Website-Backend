@@ -1,89 +1,74 @@
 const { national } = require('../models/nationalModel');
-const addnationalFacility = async function(req, res) {
+const addnationalfaculty = async function(req, res) {
     try {
         const {
-            facilities,
-            facality_or_international,
-            
+            university,
+            faculty,
+            normal_or_Dual,
             programs,
             feesEgyption,
             feesNatives,
             section,
-            firstYearThanwyaa,
-            scoreFirst,
-            secondYearThanwyaa,
-            scoreSecond,
-            firstYearAzhar,
-            scorefirstAzhar,
-            secondYearAzhar,
-            scoreYearsecondAzhar,
-            firstYearStem,
-            scorefirstStem,
-            secondYearStem,
-            scoreYearsecondStem,
-            minimumForNatives,
-            speciality,
+            thanwyaa_firstYear_score,
+            thanwyaa_secondYear_score,
+            azhar_firstYear_score,
+            azhar_secondYear_score,
+            stem_firstYear_score,
+            stem_secondYear_score,
+            wafdeen_score,
             DormsInfo,
-            detailsSchoolarship,
-            //transfer_link,
-            //details_about_internationa_program,
+            Schoolarships_link,
         } = req.body;
 
-        const newFacility = new national({
-            facilities,
-            facality_or_international,
+        const newfaculty = new national({
+            university,
+            faculty,
+            normal_or_Dual,
             programs,
             feesEgyption,
             feesNatives,
             section,
-            firstYearThanwyaa,
-            scoreFirst,
-            secondYearThanwyaa,
-            scoreSecond,
-            firstYearAzhar,
-            scorefirstAzhar,
-            secondYearAzhar,
-            scoreYearsecondAzhar,
-            firstYearStem,
-            scorefirstStem,
-            secondYearStem,
-            scoreYearsecondStem,
-            minimumForNatives,
-            speciality,
+            thanwyaa_firstYear_score,
+            thanwyaa_secondYear_score,
+            azhar_firstYear_score,
+            azhar_secondYear_score,
+            stem_firstYear_score,
+            stem_secondYear_score,
+            wafdeen_score,
             DormsInfo,
             detailsSchoolarship,
         });
 
-        await newFacility.save();
-        res.status(200).json({ message: 'Facility added successfully' });
+        await newfaculty.save();
+        res.status(200).json({ message: 'faculty added successfully' });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: 'Error when adding facility' });
+        res.status(500).json({ message: 'Error when adding faculty' });
     }
 };
 
-const deleteFacility = async function(req, res) {
+const deletefaculty = async function(req, res) {
     try {
         const { name } = req.params;
-        const result = await national.deleteOne({ facilities: name });
+        const result = await national.deleteOne({ faculty: name });
         if (result.deletedCount > 0) {
-            res.status(200).json({ message: 'Facility deleted successfully' });
+            res.status(200).json({ message: 'faculty deleted successfully' });
         } else {
-            res.status(404).json({ message: 'Facility not found' });
+            res.status(404).json({ message: 'faculty not found' });
         }
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: 'Error when deleting facility' });
+        res.status(500).json({ message: 'Error when deleting faculty' });
     }
 };
 
-const getAllfacilities = async function(req,res){
+const getAllfaculty = async function(req,res){
     try{
-        const facilities = await national.find();
-        if(facilities.length === 0){
+        const faculty = await national.find();
+        if(faculty.length === 0){
             res.status(404).json({message:'no data'});
         }
-        res.status(200).json({facilities});
+        res.status(200).json({faculty});
     }
     catch(error){
         console.log(error);
@@ -92,4 +77,4 @@ const getAllfacilities = async function(req,res){
 
 
 
-module.exports = { addnationalFacility, deleteFacility, getAllfacilities, };
+module.exports = { addnationalfaculty, deletefaculty, getAllfaculty, };
