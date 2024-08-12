@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const secondInfoSchema = new mongoose.Schema({
+    spec: String,
     type: String,
-    price: String,
-    spec: String
+    price: String
 });
 
 const nationaltrans_Info = mongoose.model('nationaltransInfo', secondInfoSchema);
