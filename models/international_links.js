@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const privatelinksSchema = mongoose.Schema({
+const internationallinksSchema = mongoose.Schema({
     university: String,
     university_Arabic_Name: String,
     university_Logo: String,
@@ -25,6 +25,6 @@ const privatelinksSchema = mongoose.Schema({
     Wafdeen_Admission_link: String,
 });
 
-const privatelinksModel = mongoose.model('privatelinks', privatelinksSchema);
+const internationallinksModel = mongoose.model('internationallinks', internationallinksSchema);
 
-module.exports = privatelinksModel;
+module.exports = internationallinksModel;
