@@ -1,7 +1,9 @@
 const express = require('express');
-const router = express();
-const {addSchoralships, getSchoralships} = require('../controller/SchoralshipsController');
+const router = express.Router(); // Corrected here
+const { addScholarships, getScholarships } = require('../controller/ScholarshipsController'); // Make sure this path is correct
 
-router.post('/addSchoralships', addSchoralships);
-router.get('/getSchoralships', getSchoralships);
+// Define routes
+router.post('/add', addScholarships); // Adjusted endpoint path
+router.get('/all', getScholarships);  // Adjusted endpoint path
+
 module.exports = router;
