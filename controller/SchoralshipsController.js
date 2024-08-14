@@ -2,7 +2,12 @@ const SchoralshipsModel = require('../models/SchoralshipsModel');
 
 const addSchoralships = async function(req, res) {
     try {
-        const { text } = req.body;
+        const {             scholarship_title,
+            scholarship_details,
+            scholarship_photo,
+            scholarship_type,
+            due_date,
+            scholarship_link } = req.body;
         const newText = new SchoralshipsModel({
             text,
         });
