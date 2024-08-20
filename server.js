@@ -10,7 +10,6 @@ const news = require('./router/newsRouter');
 const Schoralships = require('./router/SchoralshipsRouter');
 const contact = require('./router/contactRouter');
 const visitorRouter = require('./router/visitorRouter'); // Adjusted path
-const Faculties = require('./router/FacultiesRouter');
 const national = require('./router/nationalRouter');
 const national_Links = require('./router/national_links_router');
 const nationaldorms = require('./router/nationalinfoDormsRouter');
@@ -53,7 +52,6 @@ app.use('/auth', authRoutes);
 app.use('/news', news);
 app.use('/Schoralships', Schoralships);
 app.use('/contact', contact);
-app.use('/Facultiesfaculty', Faculties);
 app.use('/nationalfaculty', national);
 app.use('/nationallinks', national_Links);
 app.use('/nationaldorms', nationaldorms);
