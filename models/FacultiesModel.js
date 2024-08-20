@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const FacultiesSchema = new mongoose.Schema({
-            university: String,
             faculty: String,
+            uni: String,
+            type: String,
             normal_or_Dual: String,
             programs: String,
             feesEgyption: String,

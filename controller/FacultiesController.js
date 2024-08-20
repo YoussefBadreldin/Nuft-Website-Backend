@@ -2,8 +2,9 @@ const { Faculties } = require('../models/FacultiesModel');
 const addFacultiesfaculty = async function(req, res) {
     try {
         const {
-            university,
             faculty,
+            uni,
+            type,
             normal_or_Dual,
             programs,
             feesEgyption,
@@ -19,8 +20,9 @@ const addFacultiesfaculty = async function(req, res) {
         } = req.body;
 
         const newfaculty = new Faculties({
-            university,
             faculty,
+            uni,
+            type,
             normal_or_Dual,
             programs,
             feesEgyption,
